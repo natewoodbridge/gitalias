@@ -1063,3 +1063,15 @@
 
   ull = pull
   ush = push
+  
+  ### Custom Aliases ###
+
+	merge-into = "!f(){ \
+	branch=$(git branch-name); \
+	base=\"$1\"; \
+	git push; \
+	git checkout \"$base\"; git pull; \
+	git merge \"$branch\"; \
+	git commit; \
+	git push; \
+	};f"
